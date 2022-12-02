@@ -1,0 +1,21 @@
+<div class="bg-dark card" style="width: 18rem; margin: 3px">
+  <img [src]="imageUrl" class="card-img-top" alt="..." />
+  <div class="card-body" style="text-align: center">
+    <h5 class="card-title text-white">
+      {{ name }}
+    </h5>
+    <p class="card-subtitle text-white">{{ price }}$</p>
+    <div
+      class="card-subtitle"
+      style="display: flex; justify-content: space-evenly; margin-top: 5px"
+    >
+      <input [(ngModel)]="quantity" type="number" min="1" size="2" />
+      <button (click)="onAddToCart()" class="btn btn-primary">
+        Add to cart
+      </button>
+      <button routerLink="product/{{ id }}" class="btn btn-secondary">
+        Details
+      </button>
+    </div>
+  </div>
+</div>

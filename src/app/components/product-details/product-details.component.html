@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row row-col-2 m-3">
+    <div class="col text-center">
+      <img
+        class="rounded"
+        width="300"
+        height="400"
+        src="{{ imageUrl }}"
+        alt=""
+      />
+    </div>
+    <div class="col">
+      <div class="row">
+        <h1>{{ name }}</h1>
+      </div>
+      <div class="row">
+        <p>{{ description }}</p>
+      </div>
+      <div class="row">
+        <div class="d-flex">
+          <input type="number" min="1" size="2" value="1" />
+          <button class="btn btn-primary ms-2">Add to cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

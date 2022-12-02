@@ -1,0 +1,55 @@
+<div class="container mt-5">
+  <div class="row row-cols-2">
+    <div class="col">
+      <div class="row row-cols-auto">
+        <div *ngFor="let product of products">
+          <app-product
+            id="{{ product.id }}"
+            name="{{ product.name }}"
+            price="{{ product.price }}"
+            imageUrl="{{ product.url }}"
+            quantity="{{ product.quantity }}"
+          ></app-product>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="container bg-dark text-white rounded w-75 p-3">
+        <div
+          class="d-flex justify-content-between align-self-center"
+          *ngFor="let product of products"
+        >
+          <p>{{ product.name }} x {{ product.quantity }}</p>
+          <p>{{ product.price * product.quantity }}$</p>
+        </div>
+        <div class="d-flex justify-content-between align-self-center">
+          <p>total</p>
+          <p>{{ totalPrice }}$</p>
+        </div>
+        <form>
+          <div class="mb-3">
+            <label for="fullName" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="fullName" />
+          </div>
+          <div class="mb-3">
+            <label for="address" class="form-label">Address</label>
+            <input type="text" class="form-control" id="address" />
+          </div>
+          <div class="mb-3">
+            <label for="creditCard" class="form-label"
+              >Credit Card Number</label
+            >
+            <input type="text" class="form-control" id="creditCard" />
+          </div>
+          <button
+            (click)="onOrderSubmit()"
+            type="submit"
+            class="btn btn-primary"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

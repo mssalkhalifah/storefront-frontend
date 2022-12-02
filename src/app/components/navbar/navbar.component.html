@@ -1,6 +1,11 @@
 <nav class="navbar navbar-dark bg-dark">
   <div class="container-fluid">
-    <a routerLink="/" class="navbar-brand">{{ title }}</a>
+    <div>
+      <a routerLink="/" class="navbar-brand">{{ title }}</a>
+      <button routerLink="/cart" type="button" class="btn btn-outline-info">
+        Cart
+      </button>
+    </div>
     <form class="d-flex" role="search">
       <input
         class="form-control me-2"

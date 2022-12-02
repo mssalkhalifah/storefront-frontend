@@ -1,0 +1,12 @@
+<div class="container text_center">
+  <div class="row row-cols-auto" style="margin: 10px">
+    <div class="col" *ngFor="let product of products">
+      <app-product
+        id="{{ product.id }}"
+        name="{{ product.name }}"
+        price="{{ product.price }}"
+        imageUrl="{{ product.url }}"
+      ></app-product>
+    </div>
+  </div>
+</div>
