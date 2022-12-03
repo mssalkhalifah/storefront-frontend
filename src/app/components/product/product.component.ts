@@ -13,6 +13,8 @@ export class ProductComponent {
   @Input() price = '0';
   @Input() imageUrl = '../../assets/placeholder600800.png';
   @Input() quantity: string | number = 1;
+  @Input() hideAddToCartButtonVisbility = false;
+  @Input() disableQuantityInput = false;
 
   constructor(private cartService: CartService) {}
 
@@ -27,5 +29,6 @@ export class ProductComponent {
     };
 
     this.cartService.addProduct(product);
+    alert('Added to cart');
   }
 }
