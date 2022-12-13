@@ -25,21 +25,13 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.products = this.cartService.getAllProducts();
-    this.products.forEach((product) => {
-      this.totalPrice += product.price * product.quantity;
-      this.totalPrice.toFixed(2);
+    this.cartService.getAllProducts().subscribe((data) => {
+      this.products = data;
+
+      this.products.forEach((product) => {
+        this.totalPrice += product.price * product.quantity;
+        this.totalPrice.toFixed(2);
+      });
     });
-  }
-
-  onOrderSubmit(): void {
-    let message = 'Order Submitted';
-
-    if (!this.cartService.clearCart()) {
-      message = 'Something went wrong';
-    }
-
-    alert(message);
-    window.location.href = '/';
   }
 }

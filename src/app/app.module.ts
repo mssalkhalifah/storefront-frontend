@@ -10,6 +10,8 @@ import { HomeComponent } from './components/home/home.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { CartComponent } from './components/cart/cart.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ConfirmationComponent } from './components/confirmation/confirmation.component';
+import { CartListingComponent } from './components/cart-listing/cart-listing.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     ProductDetailsComponent,
     CartComponent,
+    ConfirmationComponent,
+    CartListingComponent,
   ],
   imports: [
     BrowserModule,

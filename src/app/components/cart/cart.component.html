@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container">
   <div class="row row-cols-2">
     <div class="col">
       <div class="row row-cols-auto">
@@ -86,9 +86,9 @@
           </div>
           <button
             [disabled]="!cartForm.valid"
-            (click)="onOrderSubmit()"
             type="submit"
             class="btn btn-primary"
+            routerLink="/confirmation"
           >
             Submit
           </button>
