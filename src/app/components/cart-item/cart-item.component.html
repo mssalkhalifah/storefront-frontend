@@ -2,17 +2,23 @@
   <div class="card-body">
     <div class="d-flex justify-content-between">
       <div class="d-flex flex-row align-items-center">
-        <img [src]="imageUrl" alt="" class="img-fluid rounded" width="100" />
-        <p class="m-2">{{ name }}</p>
+        <img
+          [src]="product?.url"
+          alt=""
+          class="img-fluid rounded"
+          width="100"
+        />
+        <p class="m-2">{{ product?.name }}</p>
       </div>
       <div class="d-flex flex-row align-items-center">
-        <p class="m-1">{{ quantity }}</p>
-        <p class="m-1">${{ price }}</p>
+        <p class="m-1">{{ product?.quantity }}</p>
+        <p class="m-1">${{ product?.price }}</p>
         <button
-          routerLink="product/{{ id }}"
+          routerLink="product/{{ product?.id }}"
           class="btn btn-secondary rounded m-1 fs-6 bi bi-info-lg"
         ></button>
         <button
+          (click)="deleteItem()"
           class="btn btn-danger rounded m-1 fs-6 bi bi-trash-fill"
         ></button>
       </div>

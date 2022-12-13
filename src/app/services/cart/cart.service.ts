@@ -10,7 +10,7 @@ export class CartService {
   private cart: BehaviorSubject<Product[]>;
   private confirmed = false;
 
-  constructor(private http: HttpClient) {
+  constructor() {
     this.cart = new BehaviorSubject<Product[]>([]);
   }
 
@@ -25,6 +25,20 @@ export class CartService {
 
   getAllProducts(): Observable<Product[]> {
     return this.cart.asObservable();
+  }
+
+  removeItem(product: Product): boolean {
+    const products = this.cart.value;
+    const index = products.indexOf(product);
+
+    if (index !== -1) {
+      products.splice(index, 1);
+      this.cart.next(products);
+
+      return true;
+    }
+
+    return false;
   }
 
   getConfirmation(): boolean {

@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { CartService } from 'src/app/services/cart/cart.service';
+import { Product } from 'src/app/services/product/product.service';
 
 @Component({
   selector: 'app-cart-item',
@@ -6,9 +8,17 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./cart-item.component.css'],
 })
 export class CartItemComponent {
-  @Input() id = '0';
-  @Input() imageUrl = '../../../assets/placeholder600800.png';
-  @Input() name = 'loading...';
-  @Input() price: number | string = 'loading...';
-  @Input() quantity: number | string = 'loading...';
+  @Input() product: Product | undefined;
+
+  constructor(private cartService: CartService) {}
+
+  deleteItem(): void {
+    if (this.product) {
+      if (!this.cartService.removeItem(this.product)) {
+        alert('Could not delete item');
+      } else {
+        alert(`Item ${this.product.name} was removed`);
+      }
+    }
+  }
 }

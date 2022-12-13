@@ -10,7 +10,6 @@ import { Product } from 'src/app/services/product/product.service';
 })
 export class CartComponent implements OnInit {
   products: Product[] = [];
-  totalPrice = 0;
   cartForm: FormGroup;
 
   constructor(private cartService: CartService) {
@@ -27,11 +26,6 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.cartService.getAllProducts().subscribe((data) => {
       this.products = data;
-
-      this.products.forEach((product) => {
-        this.totalPrice += product.price * product.quantity;
-        this.totalPrice.toFixed(2);
-      });
     });
   }
 }

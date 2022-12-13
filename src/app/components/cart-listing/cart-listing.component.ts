@@ -16,6 +16,7 @@ export class CartListingComponent implements OnInit {
   ngOnInit(): void {
     this.cartService.getAllProducts().subscribe((data) => {
       this.products = data;
+      this.totalPrice = 0;
 
       this.products.forEach((product) => {
         this.totalPrice += product.price * product.quantity;
