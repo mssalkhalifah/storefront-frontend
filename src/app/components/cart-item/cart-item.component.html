@@ -1,0 +1,21 @@
+<div class="card mb-2 border-3 bg-dark text-white fs-5">
+  <div class="card-body">
+    <div class="d-flex justify-content-between">
+      <div class="d-flex flex-row align-items-center">
+        <img [src]="imageUrl" alt="" class="img-fluid rounded" width="100" />
+        <p class="m-2">{{ name }}</p>
+      </div>
+      <div class="d-flex flex-row align-items-center">
+        <p class="m-1">{{ quantity }}</p>
+        <p class="m-1">${{ price }}</p>
+        <button
+          routerLink="product/{{ id }}"
+          class="btn btn-secondary rounded m-1 fs-6 bi bi-info-lg"
+        ></button>
+        <button
+          class="btn btn-danger rounded m-1 fs-6 bi bi-trash-fill"
+        ></button>
+      </div>
+    </div>
+  </div>
+</div>
