@@ -24,6 +24,18 @@
             >
               Name is required
             </div>
+            <div
+              class="text-warning"
+              *ngIf="cartForm.controls['name'].hasError('pattern')"
+            >
+              Must contain first and last name
+            </div>
+            <div
+              class="text-warning"
+              *ngIf="cartForm.controls['name'].hasError('minlength')"
+            >
+              Must contain atleast 6 characters
+            </div>
           </div>
           <div class="mb-3">
             <label for="address" class="form-label">Address</label>
@@ -38,6 +50,12 @@
               *ngIf="cartForm.controls['address'].hasError('required')"
             >
               Address is required
+            </div>
+            <div
+              class="text-warning"
+              *ngIf="cartForm.controls['address'].hasError('minlength')"
+            >
+              Must contain atleast 6 characters
             </div>
           </div>
           <div class="mb-3">
@@ -60,7 +78,7 @@
               class="text-warning"
               *ngIf="cartForm.controls['creditCardNumber'].hasError('pattern')"
             >
-              Credit card number must consists of only numbers
+              Credit card number must consists of only numbers of 16 digits
             </div>
           </div>
           <button

@@ -14,11 +14,18 @@ export class CartComponent implements OnInit {
 
   constructor(private cartService: CartService) {
     this.cartForm = new FormGroup({
-      name: new FormControl('', [Validators.required]),
-      address: new FormControl('', [Validators.required]),
+      name: new FormControl('', [
+        Validators.required,
+        Validators.pattern(/^[a-zA-Z]+ [a-zA-Z]+$/),
+        Validators.minLength(6),
+      ]),
+      address: new FormControl('', [
+        Validators.required,
+        Validators.minLength(6),
+      ]),
       creditCardNumber: new FormControl('', [
         Validators.required,
-        Validators.pattern(/^\d+$/),
+        Validators.pattern(/^\d{16}$/),
       ]),
     });
   }
