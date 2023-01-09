@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { CartService } from 'src/app/services/cart/cart.service';
 import { Product } from 'src/app/services/product/product.service';
 
@@ -10,6 +10,7 @@ import { Product } from 'src/app/services/product/product.service';
 export class CartListingComponent implements OnInit {
   products: Product[] = [];
   totalPrice = 0;
+  @Output() totalPriceEvent = new EventEmitter<number>();
 
   constructor(private cartService: CartService) {}
 
@@ -22,6 +23,12 @@ export class CartListingComponent implements OnInit {
         this.totalPrice += product.price * product.quantity;
         this.totalPrice.toFixed(2);
       });
+
+      this.getTotalPrice();
     });
+  }
+
+  getTotalPrice(): void {
+    this.totalPriceEvent.emit(this.totalPrice);
   }
 }
